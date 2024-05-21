@@ -20,7 +20,7 @@ const Login = () => {
       localStorage.setItem("userID", userID); 
       navigate('/home');
     } catch(err) {
-      alert(err.message); 
+      alert("Account Not Found!!"); 
     }
   };
 
@@ -32,7 +32,8 @@ const Login = () => {
         <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
         <label>Password:</label>
         <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
-        <button type="submit">Login</button>
+        <button type="submit">Login</button> 
+        <p>Not registered yet? <a href="/register" className='register'>Register Now!</a></p>
       </form>
     </div>
   );

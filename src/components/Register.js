@@ -16,7 +16,6 @@ const Register = () => {
     console.log('Registering with:', email, password);
     try {
         const response = await axios.post(url, {email, password})
-        alert("Registration successful"); 
         navigate('/');
     } catch(err) {
         alert(err.message); 
