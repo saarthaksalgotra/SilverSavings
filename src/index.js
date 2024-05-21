@@ -6,6 +6,7 @@ import Navbar from './components/Navbar';
 import App from './App';
 import FinanceTracker from './components/FinanceTracker';
 import Home from './components/home';
+import Register from "./components/Register";
 import KeyFeatures from './components/KeyFeatures';
 import Login from './components/Log';
 import reportWebVitals from './reportWebVitals';
@@ -22,6 +23,7 @@ root.render(
         <Route path="/keyfeatures" element={<KeyFeatures />} /> {/* Route for KeyFeatures */}
         <Route path="/" element={<Login />} />
         <Route path="/tracker" element={<FinanceTracker />} />
+        <Route path="/register" element={<Register />} />
       </Routes>
     </Router>
   </React.StrictMode>

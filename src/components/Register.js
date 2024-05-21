@@ -1,41 +1,42 @@
 import React, { useState } from 'react';
-import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
-const Login = () => {
+const Register = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
 
-  const handleLogin = async (e) => {
+  const handleRegister = async (e) => {
     e.preventDefault();
-    // Add your login logic here, such as API calls
+    // POST /register
 
-    const url = process.env.REACT_APP_API_URL + "/login"
+    const url = process.env.REACT_APP_API_URL + "/register"
 
+    console.log('Registering with:', email, password);
     try {
-      const response = await axios.post(url, {email, password})
-      console.log('Logging in with:', email, password);
-      const userID = response.data.userID; 
-      localStorage.setItem("userID", userID); 
-      navigate('/home');
+        const response = await axios.post(url, {email, password})
+        alert("Registration successful"); 
+        navigate('/');
     } catch(err) {
-      alert(err.message); 
+        alert(err.message); 
     }
+    
+    // Add your login logic here, such as API calls
   };
 
   return (
     <div className="login-container">
-      <h2>Login</h2>
-      <form onSubmit={handleLogin} className="login-form">
+      <h2>Register</h2>
+      <form onSubmit={handleRegister} className="login-form">
         <label>Email:</label>
         <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
         <label>Password:</label>
         <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
-        <button type="submit">Login</button>
+        <button type="submit">Register</button>
       </form>
     </div>
   );
 };
 
-export default Login;
+export default Register;

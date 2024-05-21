@@ -1,27 +1,56 @@
 // src/components/FinanceTracker.js
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 
 const FinanceTracker = () => {
   const [transactions, setTransactions] = useState([]);
   const [text, setText] = useState('');
   const [amount, setAmount] = useState('');
 
-  const addTransaction = (e) => {
+  async function renderUserData() {
+    const userID = localStorage.getItem("userID");
+    const url = process.env.REACT_APP_API_URL + "/users/" + userID; 
+    const response = await axios.get(url);
+    const user = response.data.user; 
+
+    setTransactions(user.expenses); 
+  }
+
+  useEffect(() => {
+    renderUserData(); 
+  }, [])
+
+  const addTransaction = async (e) => {
     e.preventDefault();
 
     const newTransaction = {
-      id: Math.floor(Math.random() * 100000000),
       text,
-      amount: +amount
+      amount: +amount,
+      userID: localStorage.getItem("userID"),
     };
 
-    setTransactions([newTransaction, ...transactions]);
-    setText('');
-    setAmount('');
+    const url = process.env.REACT_APP_API_URL + "/expenses"
+
+    try {
+      const response = await axios.post(url, newTransaction)
+      setTransactions([response.data.expense, ...transactions]);
+      setText('');
+      setAmount('');
+    } catch(err) {
+      alert(err.message); 
+    }
+
+    
   };
 
-  const deleteTransaction = (id) => {
-    setTransactions(transactions.filter(transaction => transaction.id !== id));
+  const deleteTransaction = async (id) => {
+    const url = process.env.REACT_APP_API_URL + "/expenses/" + id;
+    try {
+      await axios.delete(url); 
+      setTransactions(transactions.filter(transaction => transaction._id !== id));
+    } catch(err) {
+      alert(err.message); 
+    }
   };
 
   const calculateBalance = () => {
@@ -42,10 +71,10 @@ const FinanceTracker = () => {
         <h3>History</h3>
         <ul className="list">
           {transactions.map(transaction => (
-            <li key={transaction.id} className={transaction.amount < 0 ? 'minus' : 'plus'}>
+            <li key={transaction._id} className={transaction.amount < 0 ? 'minus' : 'plus'}>
               {transaction.text} 
               <span>{transaction.amount < 0 ? '-' : '+'}₹ {Math.abs(transaction.amount)}</span>
-              <button className="delete-btn" onClick={() => deleteTransaction(transaction.id)}>x</button>
+              <button className="delete-btn" onClick={() => deleteTransaction(transaction._id)}>x</button>
             </li>
           ))}
         </ul>
