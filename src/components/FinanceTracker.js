@@ -55,7 +55,7 @@ const FinanceTracker = () => {
         <h3>Add New Transaction</h3>
         <form onSubmit={addTransaction}>
           <div className="form-control">
-            <label htmlFor="text">Text</label>
+            <label htmlFor="text">Title</label>
             <input type="text" value={text} onChange={(e) => setText(e.target.value)} placeholder="Enter text..." />
           </div>
           <div className="form-control">
