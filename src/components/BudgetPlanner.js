@@ -37,7 +37,7 @@ const BudgetPlanner = () => {
         onChange={(e) => setSavings(e.target.value)}
       />
       <button onClick={calculateBudget}>Calculate</button>
-      {budget !== null && <h3>Remaining Budget: ${budget}</h3>}
+      {budget !== null && <h3>Remaining Budget: ₹ {budget}</h3>}
     </div>
   );
 };

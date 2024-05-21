@@ -18,6 +18,11 @@ const Home = () => {
             Calculate Now!
           </button>
         </a>
+        <a href="/tracker">
+          <button>
+            Track Budget!
+          </button>
+        </a>
       </div>
     </div>
   );

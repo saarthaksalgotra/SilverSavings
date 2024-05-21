@@ -38,7 +38,7 @@ const DebtPayoff = () => {
         onChange={(e) => setMonthlyPayment(e.target.value)}
       />
       <button onClick={calculateDebtPayoff}>Calculate</button>
-      {monthsToPayoff !== null && <h3>Months to Payoff: {monthsToPayoff}</h3>}
+      {monthsToPayoff !== null && <h3>Months to Payoff: ₹ {monthsToPayoff}</h3>}
     </div>
   );
 };

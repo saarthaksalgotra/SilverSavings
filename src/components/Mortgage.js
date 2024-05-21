@@ -44,7 +44,7 @@ const Mortgage = () => {
         onChange={(e) => setInterestRate(e.target.value)}
       />
       <button onClick={calculateMortgage}>Calculate</button>
-      {monthlyPayment !== null && <h3>Monthly Payment: ${monthlyPayment}</h3>}
+      {monthlyPayment !== null && <h3>Monthly Payment: ₹ {monthlyPayment}</h3>}
     </div>
   );
 };

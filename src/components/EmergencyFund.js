@@ -30,7 +30,7 @@ const EmergencyFund = () => {
         onChange={(e) => setMonths(e.target.value)}
       />
       <button onClick={calculateEmergencyFund}>Calculate</button>
-      {fundAmount !== null && <h3>Emergency Fund Needed: ${fundAmount}</h3>}
+      {fundAmount !== null && <h3>Emergency Fund Needed: ₹ {fundAmount}</h3>}
     </div>
   );
 };

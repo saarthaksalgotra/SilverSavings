@@ -55,7 +55,7 @@ const CollegeSavings = () => {
         onChange={(e) => setCollegeCost(e.target.value)}
       />
       <button onClick={calculateCollegeSavings}>Calculate</button>
-      {totalSavings !== null && <h3>Total Savings Needed: ${totalSavings}</h3>}
+      {totalSavings !== null && <h3>Total Savings Needed: ₹ {totalSavings}</h3>}
     </div>
   );
 };

@@ -29,7 +29,7 @@ const TaxEstimator = () => {
         onChange={(e) => setTaxableIncome(e.target.value)}
       />
       <button onClick={calculateTax}>Calculate</button>
-      {tax !== null && <h3>Tax Owed: ${tax}</h3>}
+      {tax !== null && <h3>Tax Owed: ₹ {tax}</h3>}
     </div>
   );
 };

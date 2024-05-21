@@ -37,7 +37,7 @@ const LoanRepayment = () => {
         onChange={(e) => setLoanTerm(e.target.value)}
       />
       <button onClick={calculateRepayment}>Calculate</button>
-      {monthlyPayment !== null && <h3>Monthly Payment: ${monthlyPayment}</h3>}
+      {monthlyPayment !== null && <h3>Monthly Payment: ₹ {monthlyPayment}</h3>}
     </div>
   );
 };

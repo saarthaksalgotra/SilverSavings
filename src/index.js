@@ -4,10 +4,12 @@ import ReactDOM from 'react-dom/client';
 import './App.css';
 import Navbar from './components/Navbar';
 import App from './App';
+import FinanceTracker from './components/FinanceTracker';
 import Home from './components/home';
 import KeyFeatures from './components/KeyFeatures';
 import Login from './components/Log';
 import reportWebVitals from './reportWebVitals';
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -19,7 +21,7 @@ root.render(
         <Route path="/calculate" element={<App />} /> {/* Render App component at the root */}
         <Route path="/keyfeatures" element={<KeyFeatures />} /> {/* Route for KeyFeatures */}
         <Route path="/" element={<Login />} />
-
+        <Route path="/tracker" element={<FinanceTracker />} />
       </Routes>
     </Router>
   </React.StrictMode>

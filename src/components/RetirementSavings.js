@@ -45,7 +45,7 @@ const RetirementSavings = () => {
         onChange={(e) => setAnnualReturn(e.target.value)}
       />
       <button onClick={calculateSavings}>Calculate</button>
-      {savings !== null && <h3>Estimated Savings: ${savings}</h3>}
+      {savings !== null && <h3>Estimated Savings: ₹ {savings}</h3>}
     </div>
   );
 };

@@ -45,7 +45,7 @@ const InvestmentGrowth = () => {
         onChange={(e) => setAnnualReturn(e.target.value)}
       />
       <button onClick={calculateGrowth}>Calculate</button>
-      {futureValue !== null && <h3>Future Value: ${futureValue}</h3>}
+      {futureValue !== null && <h3>Future Value: ₹ {futureValue}</h3>}
     </div>
   );
 };

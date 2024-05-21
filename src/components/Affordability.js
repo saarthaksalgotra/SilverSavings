@@ -54,7 +54,7 @@ const Affordability = () => {
         onChange={(e) => setLoanTerm(e.target.value)}
       />
       <button onClick={calculateAffordability}>Calculate</button>
-      {affordableHomePrice !== null && <h3>Affordable Home Price: ${affordableHomePrice}</h3>}
+      {affordableHomePrice !== null && <h3>Affordable Home Price: ₹ {affordableHomePrice}</h3>}
     </div>
   );
 };

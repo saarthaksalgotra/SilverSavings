@@ -53,7 +53,7 @@ const SavingsGoal = () => {
         onChange={(e) => setYears(e.target.value)}
       />
       <button onClick={calculateSavingsGoal}>Calculate</button>
-      {futureValue !== null && <h3>Future Value: ${futureValue}</h3>}
+      {futureValue !== null && <h3>Future Value: ₹ {futureValue}</h3>}
     </div>
   );
 };
